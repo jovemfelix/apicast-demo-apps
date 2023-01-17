@@ -157,7 +157,7 @@ spec:
     targetPort: 8043
 ---
 kind: "DeploymentConfig"
-apiVersion: "v1"
+apiVersion: apps.openshift.io/v1
 metadata:
   name: "apicast"
 spec:
@@ -232,7 +232,6 @@ spec:
     args:
     - -text="hello world"
     - -listen=:8080
-    imagePullPolicy: IfNotPresent
     ports:
     - name: dns
       port: 8080
