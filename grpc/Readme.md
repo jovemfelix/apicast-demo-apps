@@ -285,12 +285,11 @@ oc exec -ti client --  /go/bin/client --address apicast-service:8043 --name "Bob
 ❯ oc create route passthrough apicast-tls --service=test-apicast-service --port=tls
 ```
 
-#### 
-
 1. Client call to the Route of grpc service. Plaintext connection.
 
 ```shell
-oc exec -ti client --  /go/bin/client --address $(oc get route -o jsonpath='{.spec.host}' grpc):443 --name "t1"
+❯ ADDRESS=$(oc get route -o jsonpath='{.spec.host}' grpc)
+❯ oc exec -ti client --  /go/bin/client --address $ADDRESS:443 --name "t1"
 ```
 
 > <u>output</u>:
